@@ -1,0 +1,4 @@
+Add dropdown menus for Navbar. (Includes "Create An Account" | "Sign In" for ACCOUNT)
+Add dropdown menu to Sidebar, branching down from Navbar.
+Add to template body some flask methods to generate user-specific contents.
+Add to Navbar/ACCOUNT flask methods to generate user-specific content.
