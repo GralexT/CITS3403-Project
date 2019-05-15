@@ -1,4 +1,0 @@
-Template:
-	Needs better small device scaling.
-	Overflow issues with Navbar and Aside/Sidebar: Does not scroll.
-	Header image flicker: Needs caching?
