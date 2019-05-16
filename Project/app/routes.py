@@ -10,7 +10,7 @@ from app.models import User
 @app.route("/")
 @app.route("/home")
 def home():
-  return render_template('home.html', title='Home')
+  return render_template('home.html')
 
 
 @app.route("/about")
@@ -26,6 +26,10 @@ def compare():
 @app.route("/top_ranks")
 def topRanks():
     return render_template("top_ranks.html", title='Top Ranks')
+
+@app.route("/feedback")
+def feedback():
+    return render_template("feedback.html", title='Feedback')
 
 
 @app.route("/account")
@@ -46,7 +50,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
-            next_page = url_for('home')
+            next_page = url_for('account')
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
@@ -67,6 +71,12 @@ def create_account():
         user.set_password_hash(form.password.data)
         db.session.add(user)
         db.session.commit()
+        login_user(user)
         flash('Congratulations, you now have an Account!')
-        return redirect(url_for('login'))
+        return redirect(url_for('account'))
     return render_template('create_account.html', title='Create Account', form=form)
+
+
+@app.route("/password_recovery")
+def password_recovery():
+    return render_template("password_recovery.html", title='Password Recovery')

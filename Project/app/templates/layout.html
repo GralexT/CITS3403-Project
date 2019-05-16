@@ -10,12 +10,12 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 
-<body>
+<body class='template'>
 	<!-- Top section containing name of site -->
 	<header class="template">
 		<!-- Page Name -->
 		{% if title %}
-		<h1>{{ title }}</h1>
+		<h1>Web Dev Project - {{title}}</h1>
 		{% else %}
 		<h1>Web Dev Project</h1>
 		{% endif %}
@@ -28,6 +28,7 @@
 		<a href="{{ url_for('about') }}">ABOUT</a>
 		<a href="{{ url_for('topRanks') }}">TOP RANKS</a>
 		<a href="{{ url_for('compare') }}">COMPARE</a>
+		<a href="{{ url_for('feedback') }}">FEEDBACK</a>
 		{% if current_user.is_anonymous %}
 		<a href="{{ url_for('create_account') }}">CREATE ACCOUNT</a>
 		<a href="{{ url_for('login') }}">LOGIN</a>
@@ -41,15 +42,7 @@
 
 	<!-- Sidebar -->
 	<aside class="template">
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
-		<a href=""><div>Aside</div></a>
+		
 	</aside>
 
 	<!-- Main body seperated by sections -->
@@ -64,7 +57,9 @@
 	{% endif %}
 	{% endwith %}
 
-	{% block content %} {% endblock content %}
+	<section class='template'>
+		{% block content %} {% endblock content %}
+	</section>
 
 	<footer class="template">
 		<!-- Referencing links -->

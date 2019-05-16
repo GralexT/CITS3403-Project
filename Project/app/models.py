@@ -32,7 +32,7 @@ class Comparison(db.Model):
 
     def __repr__(self):
         return '<Comparison {}>'.format(self.key)
-
+        
 
 @login.user_loader
 def load_user(id):
