@@ -1,4 +1,4 @@
-{% extends "Layout.html" %}
+{% extends "layout.html" %}
 
 {% block content %}
     <h1>Create Account</h1>
@@ -34,4 +34,5 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    <div>Already have an account? <a href="{{ url_for('login')}}">Login</a></div>
 {% endblock %}

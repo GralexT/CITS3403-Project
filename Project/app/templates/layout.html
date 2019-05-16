@@ -29,11 +29,11 @@
 		<a href="{{ url_for('topRanks') }}">TOP RANKS</a>
 		<a href="{{ url_for('compare') }}">COMPARE</a>
 		{% if current_user.is_anonymous %}
-		<a href="{{ url_for('create_account') }}">Create Account</a>
-		<a href="{{ url_for('login') }}">Login</a>
+		<a href="{{ url_for('create_account') }}">CREATE ACCOUNT</a>
+		<a href="{{ url_for('login') }}">LOGIN</a>
 		{% else %}
-		<a href="{{ url_for('account') }}">Account</a>
-		<a href="{{ url_for('logout') }}">Log out</a>
+		<a href="{{ url_for('account') }}">ACCOUNT</a>
+		<a href="{{ url_for('logout') }}">LOG OUT</a>
 		{% endif %}
 		<!-- Account will contain: " Create An Account | Sign In "-->
 		<!-- Alter " Create Account | Sign In " to a dropdown box of account information.-->

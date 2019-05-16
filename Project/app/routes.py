@@ -10,27 +10,27 @@ from app.models import User
 @app.route("/")
 @app.route("/home")
 def home():
-  return render_template('home.html')
+  return render_template('home.html', title='Home')
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", title='About')
 
 
 @app.route("/compare")
 def compare():
-    return render_template("compare.html")
+    return render_template("compare.html", title='Compare')
 
 
 @app.route("/top_ranks")
 def topRanks():
-    return render_template("top_ranks.html")
+    return render_template("top_ranks.html", title='Top Ranks')
 
 
 @app.route("/account")
 def account():
-    return render_template("account.html")
+    return render_template("account.html", title='Account')
 
 
 @app.route('/login', methods=['GET', 'POST'])
