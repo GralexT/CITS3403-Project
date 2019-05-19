@@ -1,6 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>{{ legend }}</h1>
 	<form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -11,9 +10,16 @@
             {% endfor %}
         </p>
         <p>
-            {{ form.feedback.label }}<br>
-            {{ form.feedback(size=32) }}
-            {% for error in form.feedback.errors %}
+            {{ form.heading.label }}<br>
+            {{ form.heading(size=32) }}
+            {% for error in form.heading.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.text.label }}<br>
+            {{ form.text(size=32) }}
+            {% for error in form.text.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>

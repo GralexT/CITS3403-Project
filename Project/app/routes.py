@@ -1,68 +1,97 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, abort
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
-import requests
 from sqlalchemy import desc
 
-
 from app import app, db
-from app.forms import LoginForm, CreateAccountForm, CompareForm, UpdateUsernameForm, FeedbackForm
-from app.models import User, Comparison, Feedback
+from app.forms import LoginForm, CreateAccountForm, UpdateUsernameForm, FeedbackForm, SectionForm
+from app.models import User, Comparison, Feedback, Home, About
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html')
+    sections = Home.query.all()
+    return render_template('home.html', sections=sections)
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html", title='About')
+    sections = About.query.all()
+    return render_template("about.html", title='About', sections=sections)
 
-
-# needs to check if subreddit is private before request data about the subreddit
-@app.route('/compare', methods=['GET', 'POST'])
-def compare():
-    form = CompareForm()
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Sections are the material contained in the Home and About pages.
+@app.route("/section/new/<string:currentpage>", methods=['GET', 'POST'])
+@login_required
+def new_section(currentpage):
+    if not current_user.admin:
+        abort(403)
+    form = SectionForm()
     if form.validate_on_submit():
-        response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit1.data,
-                                headers={'User-agent': 'my bot 0.1'}).json()
-        subreddit1_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
-        data1 = requests.get('https://www.reddit.com/'+subreddit1_display_name+'/about.json',
-                             headers={"User-agent": 'my bot 0.1'}).json()
-        data2 = ""
-        flash('Appropriate Subreddit was found, ' + subreddit1_display_name)
+        if currentpage == 'home':
+            newsection = Home(title=form.title.data, heading=form.heading.data, text=form.text.data)
+        else:
+            newsection = About(title=form.title.data, heading=form.heading.data, text=form.text.data)
+        db.session.add(newsection)
+        db.session.commit()
+        flash('Section Updated.')
+        return redirect(url_for(currentpage))
+    return render_template('section_form.html', title='New Section', form=form)
 
-        if form.subreddit2.data:
-            response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit2.data,
-                                    headers={'User-agent': 'my bot 0.1'}).json()
-            subreddit2_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
-            data2 = requests.get('https://www.reddit.com/'+subreddit2_display_name+'/about.json',
-                                 headers={"User-agent": 'my bot 0.1'}).json()
-            flash('Appropriate Subreddit was found, ' + subreddit2_display_name)
 
-        return render_template("compare_filled.html", title='Compare Filled', form=form,
-                               sub1_data=data1,
-                               sub2_data=data2)
-    return render_template("compare.html", title='Compare', form=form)
+@app.route("/section/update/<int:sectionId><string:currentpage>", methods=['GET', 'POST'])
+@login_required
+def update_section(sectionId, currentpage):
+    if not current_user.admin:
+        abort(403)
+    if currentpage == 'home':
+        section = Home.query.get_or_404(sectionId)
+    else:
+        section = About.query.get_or_404(sectionId)
+    form = SectionForm()
+    if form.validate_on_submit():
+        section.title = form.title.data
+        section.heading = form.heading.data
+        section.text = form.text.data
+        db.session.commit()
+        flash('Section Updated.')
+        return redirect(url_for(currentpage))
+    form.title.data = section.title
+    form.heading.data = section.heading
+    form.text.data = section.text
+    return render_template('section_form.html', title='Update Section', form=form)
+
+
+@app.route("/section/delete/<int:sectionId><string:currentpage>", methods=['GET', 'POST'])
+@login_required
+def delete_section(sectionId, currentpage):
+    if not current_user.admin:
+        abort(403)
+    if currentpage == 'home':
+        section = Home.query.get_or_404(sectionId)
+    else:
+        section = About.query.get_or_404(sectionId)
+    db.session.delete(section)
+    db.session.commit()
+    flash('Section Deleted.')
+    return redirect(url_for(currentpage))
+
+
+@app.route("/compare")
+def compare():
+    return render_template("compare.html", title='Compare')
 
 
 @app.route("/top_ranks")
 def topRanks():
-    response = requests.get("https://www.reddit.com/r/all/top.json?t=all", headers={'User-agent':'my bot 0.1'}).json()
-    post_popular = response["data"]["children"]
-    post_popular_len = len(post_popular)
-    return render_template("top_ranks.html", title='Top Ranks',
-                           post_popular=post_popular,
-                           post_popular_len=post_popular_len)
-
+    return render_template("top_ranks.html", title='Top Ranks')
 
 @app.route("/feedback")
 def feedback():
-    feedback = Feedback.query.order_by(desc(Feedback.timestamp)).limit(25).all()
+    page = request.args.get('page', 1, type=int)
+    feedback = Feedback.query.order_by(desc(Feedback.timestamp)).paginate(page=page, per_page=5)
     return render_template("feedback.html", title='Feedback', feedback=feedback)
-
 
 @app.route("/feedback/new", methods=['GET', 'POST'])
 @login_required
@@ -74,7 +103,37 @@ def new_feedback():
         db.session.commit()
         flash('Thank you for four feedback.')
         return redirect(url_for('feedback'))
-    return render_template('new_feedback.html', title='Your Feedback', form=form)
+    return render_template('new_feedback.html', title='Your Feedback', form=form, legend='New Feedback')
+
+
+@app.route("/feedback/update/<int:feedbackId><string:currentpage>", methods=['GET', 'POST'])
+@login_required
+def update_feedback(feedbackId, currentpage):
+    feedback = Feedback.query.get_or_404(feedbackId)
+    if feedback.uid != current_user.id:
+        abort(403)
+    form = FeedbackForm()
+    if form.validate_on_submit():
+        feedback.title = form.title.data
+        feedback.text = form.feedback.data
+        db.session.commit()
+        flash('Feedback Updated.')
+        return redirect(url_for(currentpage))
+    form.title.data = feedback.title
+    form.feedback.data = feedback.text
+    return render_template('new_feedback.html', title='Update Feedback', form=form, legend='Update Feedback')
+
+
+@app.route("/feedback/delete/<int:feedbackId><string:currentpage>", methods=['GET', 'POST'])
+@login_required
+def delete_feedback(feedbackId, currentpage):
+    feedback = Feedback.query.get_or_404(feedbackId)
+    if feedback.uid != current_user.id:
+        abort(403)
+    db.session.delete(feedback)
+    db.session.commit()
+    flash('Feedback Deleted.')
+    return redirect(url_for(currentpage))
 
 
 @app.route("/account", methods=['GET', 'POST'])
@@ -86,7 +145,8 @@ def account():
         db.session.commit()
         flash('Username changed.')
         return redirect(url_for('account'))
-    feedback = Feedback.query.filter_by(user=current_user).order_by(desc(Feedback.timestamp)).limit(25).all()
+    page = request.args.get('page', 1, type=int)
+    feedback = Feedback.query.filter_by(user=current_user).order_by(desc(Feedback.timestamp)).paginate(page=page, per_page=2)
     return render_template("account.html", title='Account', form=form, feedback=feedback)
 
 
@@ -117,7 +177,7 @@ def logout():
 @app.route('/create_account', methods=['GET', 'POST'])
 def create_account():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     form = CreateAccountForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -130,6 +190,30 @@ def create_account():
     return render_template('create_account.html', title='Create Account', form=form)
 
 
-@app.route("/password_recovery")
-def password_recovery():
-    return render_template("password_recovery.html", title='Password Recovery')
+@app.route("/reset_password", methods=['GET', 'POST'])
+def reset_password():
+    if current_user.is_authenticated:
+        return redirect(url_for('account'))
+    form = RequestResetForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        send_reset_email(user)
+        flash('Please follow the link sent to your email to reset your password.')
+        return redirect(url_for('login'))
+    return render_template("reset_password.html", title='Reset Password - Email Required', form=form)
+
+@app.route("/reset_password/<token>", methods=['GET', 'POST'])
+def reset_token(token):
+    if current_user.is_authenticated:
+        return redirect(url_for('account'))
+    user = User.verify_reset_token(token)
+    if not user:
+        flash('Invalid token.')
+        return redirect(url_for('reset_password'))
+    form = ResetPasswordForm()
+    return render_template("reset_token.html", title='Reset Password', form=form)
+
+
+@app.route("/admin")
+def admin():
+    return render_template('admin_home.html')

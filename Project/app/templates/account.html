@@ -18,12 +18,24 @@
     <br>
     <br>
     <h2>Your feedback: <a href="{{ url_for('new_feedback') }}"> Submit Your Feedback </a></h2>
-    {% for feed in feedback %}
-    <h2>{{ feed.user.username }}</h2>
-    <p>Date submitted: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
+    {% for feed in feedback.items %}
     <h3>{{ feed.title }}</h3>
+    <p>Submitted On: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
+    {% if current_user.id == feed.uid %}
+        <div>
+            <a href="{{ url_for('update_feedback', feedbackId=feed.id, currentpage='account') }}">Edit Feedback</a>
+            <a href="{{ url_for('delete_feedback', feedbackId=feed.id, currentpage='account') }}">Delete Feedback</a>
+        </div>
+    {% endif %}
     <p>{{ feed.text }}</p>
     <br>
+    {% endfor %}
+    {% for page in feedback.iter_pages(left_edge=1, left_current=3, right_edge=1, right_current=4) %}
+        {% if page %}
+            <a href="{{ url_for('account', page=page) }}">{{ page }}</a>
+        {% else %}
+            ...
+        {% endif %}
     {% endfor %}
 
 
