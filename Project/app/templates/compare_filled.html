@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>COMPARE SUBREDDITS AND STATISTICS</h1>
+
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.subreddit1(size=32) }}
+            {% for error in form.subreddit1.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.subreddit2(size=32) }}
+            {% for error in form.subreddit2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+<h1 id="Title_sub1">{{ sub1_data["data"]["display_name"] }}</h1>
+<p> Subscribers = {{ sub1_data["data"]["subscribers"] }}</p>
+<p> Active Accounts = {{ sub1_data["data"]["accounts_active"] }}</p>
+<p> Subscribers = {{ sub1_data["data"]["subscribers"] }}</p>
+
+
+<h2>Compare Subreddits For Statistics</h2>
+<p>Find out how your subreddit compares to other subreddits. Or track the changes you make with our ranking system</p>
+<h3>You Can Compare The Following:</h3>
+
+
+<ul>
+	<li>Subscribers</li>
+	<li>Post Frequency</li>
+	<li>Up-votes</li>
+	<li>Down-votes</li>
+	<li>Comments</li>
+</ul>
+
+
+
+<script>
+    var data = '{{ sub1_data }}';
+    var data2 = JSON.parse(data);
+    document.getElementById("Title_sub1").innerHTML = data;
+</script>
+
+{% endblock content %}

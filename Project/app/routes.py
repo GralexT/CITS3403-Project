@@ -1,17 +1,17 @@
 from flask import render_template, flash, redirect, url_for, request
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
-from sqlalchemy import desc
+import requests
 
 from app import app, db
-from app.forms import LoginForm, CreateAccountForm, UpdateUsernameForm, FeedbackForm
-from app.models import User, Comparison, Feedback
+from app.forms import LoginForm, CreateAccountForm, CompareForm
+from app.models import User
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-  return render_template('home.html')
+    return render_template('home.html')
 
 
 @app.route("/about")
@@ -19,44 +19,51 @@ def about():
     return render_template("about.html", title='About')
 
 
-@app.route("/compare")
+# needs to check if subreddit is private before request data about the subreddit
+@app.route('/compare', methods=['GET', 'POST'])
 def compare():
-    return render_template("compare.html", title='Compare')
+    form = CompareForm()
+    if form.validate_on_submit():
+        response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit1.data,
+                                headers={'User-agent': 'my bot 0.1'}).json()
+        subreddit1_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
+        data1 = requests.get('https://www.reddit.com/'+subreddit1_display_name+'/about.json',
+                             headers={"User-agent": 'my bot 0.1'}).json()
+        data2 = ""
+        flash('Appropriate Subreddit was found, ' + subreddit1_display_name)
+
+        if form.subreddit2.data:
+            response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit2.data,
+                                    headers={'User-agent': 'my bot 0.1'}).json()
+            subreddit2_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
+            data2 = requests.get('https://www.reddit.com/'+subreddit2_display_name+'/about.json',
+                                 headers={"User-agent": 'my bot 0.1'}).json()
+            flash('Appropriate Subreddit was found, ' + subreddit2_display_name)
+
+        return render_template("compare_filled.html", title='Compare Filled', form=form,
+                               sub1_data=data1,
+                               sub2_data=data2)
+    return render_template("compare.html", title='Compare', form=form)
 
 
 @app.route("/top_ranks")
 def topRanks():
-    return render_template("top_ranks.html", title='Top Ranks')
+    response = requests.get("https://www.reddit.com/r/all/top.json?t=all", headers={'User-agent':'my bot 0.1'}).json()
+    post_popular = response["data"]["children"]
+    post_popular_len = len(post_popular)
+    return render_template("top_ranks.html", title='Top Ranks',
+                           post_popular=post_popular,
+                           post_popular_len=post_popular_len)
+
 
 @app.route("/feedback")
 def feedback():
-    feedback = Feedback.query.order_by(desc(Feedback.timestamp)).limit(25).all()
-    return render_template("feedback.html", title='Feedback', feedback=feedback)
-
-@app.route("/feedback/new", methods=['GET', 'POST'])
-@login_required
-def new_feedback():
-    form = FeedbackForm()
-    if form.validate_on_submit():
-        feedback = Feedback(user=current_user, uid=current_user.id, title=form.title.data, text=form.feedback.data)
-        db.session.add(feedback)
-        db.session.commit()
-        flash('Thank you for four feedback.')
-        return redirect(url_for('feedback'))
-    return render_template('new_feedback.html', title='Your Feedback', form=form)
+    return render_template("feedback.html", title='Feedback')
 
 
-@app.route("/account", methods=['GET', 'POST'])
-@login_required
+@app.route("/account")
 def account():
-    form = UpdateUsernameForm()
-    if form.validate_on_submit():
-        current_user.username = form.username.data
-        db.session.commit()
-        flash('Username changed.')
-        return redirect(url_for('account'))
-    feedback = Feedback.query.filter_by(user=current_user).order_by(desc(Feedback.timestamp)).limit(25).all()
-    return render_template("account.html", title='Account', form=form, feedback=feedback)
+    return render_template("account.html", title='Account')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -86,7 +93,7 @@ def logout():
 @app.route('/create_account', methods=['GET', 'POST'])
 def create_account():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('home'))
     form = CreateAccountForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
