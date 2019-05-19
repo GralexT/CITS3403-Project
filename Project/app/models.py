@@ -11,8 +11,10 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     admin = db.Column(db.Boolean, default=False)
 
+    feedback = db.relationship('Feedback', backref='user', lazy=True)
+
     def __repr__(self):
-        return '<User {}>'.format(self.username)
+        return '<User: {}, Email: {}, isAdmin: {}>'.format(self.username, self.email, self.admin)
 
     def set_password_hash(self, password):
         self.password_hash = generate_password_hash(password)
@@ -32,7 +34,18 @@ class Comparison(db.Model):
 
     def __repr__(self):
         return '<Comparison {}>'.format(self.key)
-        
+
+
+class Feedback(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    uid = db.Column(db.Integer, db.ForeignKey('user.id'))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    title = db.Column(db.String())
+    text = db.Column(db.Text)
+
+    def __repr__(self):
+        return '<UserID: {}, Timestamp: {}, Title: {}>'.format(self.uid, self.timestamp, self.title)
+
 
 @login.user_loader
 def load_user(id):

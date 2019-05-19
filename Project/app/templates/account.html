@@ -1,5 +1,30 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>Account Page</h1>
-	<p>Example of account page</p>
+	<h1>Hello, {{ current_user.username }}.</h1>
+
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            {{ form.submit() }}
+        </p>
+    </form>
+    <h2>Email: {{ current_user.email }}</h2>
+    <h2>Your saved comparisons:</h2>
+    <br>
+    <br>
+    <h2>Your feedback: <a href="{{ url_for('new_feedback') }}"> Submit Your Feedback </a></h2>
+    {% for feed in feedback %}
+    <h2>{{ feed.user.username }}</h2>
+    <p>Date submitted: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
+    <h3>{{ feed.title }}</h3>
+    <p>{{ feed.text }}</p>
+    <br>
+    {% endfor %}
+
+
 {% endblock content %}
