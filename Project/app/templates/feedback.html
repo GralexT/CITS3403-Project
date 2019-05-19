@@ -1,13 +1,4 @@
 {% extends "layout.html" %}
 {% block content %}
-	{% if not current_user.is_anonymous %}
-		<a href="{{ url_for('new_feedback') }}"> Submit Your Feedback </a>
-	{% endif %}
-	{% for feed in feedback %}
-	<h2>{{ feed.user.username }}</h2>
-	<p>Date submitted: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
-	<h3>{{ feed.title }}</h3>
-	<p>{{ feed.text }}</p>
-	<br>
-	{% endfor %}
+	<h1>Feedback Page</h1>
 {% endblock content %}
