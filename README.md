@@ -12,7 +12,7 @@ Code reuse is minimal - all code is divided into files named after thier primary
 Some functions are designed to take arguments that allow them to be used in different contexts.
 
 View:
-Navigation made easy by a sticky navbar that holds all major links. Content manipulation for users with correct permissions may be accessed by links by the content.
+Navigation made easy by a sticky navbar that holds all major links. Content manipulation for users with correct permissions may be accessed by links in the content.
 
 Controller:
 Users can edit their feedback through their account page or the feedback page, using anchor links next to their content.
