@@ -23,8 +23,8 @@ class User(UserMixin, db.Model):
     def check_password_hash(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def get_password_reset_token(self, espires_sec=600):
-        serializer = Serializer(app.config['SECRET_KEY'], time)
+    def get_password_reset_token(self, expires_sec=600):
+        serializer = Serializer(app.config['SECRET_KEY'], expires_sec)
         return serializer.dumps({'uid':self.id}).decode('utf-8')
 
     @staticmethod
@@ -81,7 +81,8 @@ class Feedback(db.Model):
         
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Admin Models.
+# Admin Models.    
+
 class AccessibleView(ModelView):
     def is_accessible(self):
         return current_user.admin
@@ -99,8 +100,8 @@ def load_user(id):
     return User.query.get(int(id))
 
 
-admin.add_view(UserView(User, db.session))
 admin.add_view(AccessibleView(Home, db.session))
+admin.add_view(UserView(User, db.session))
 admin.add_view(AccessibleView(About, db.session))
 admin.add_view(AccessibleView(Comparison, db.session))
 admin.add_view(AccessibleView(Feedback, db.session))
