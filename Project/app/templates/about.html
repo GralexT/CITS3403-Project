@@ -1,4 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>About Page</h1>
+	{% if current_user.admin %}
+		<a href="{{ url_for('new_section', currentpage='about') }}"> Add A New Section </a>
+	{% endif %}
+	{% for section in sections %}
+	<h2>{{ section.title }}</h2>
+	{% if current_user.admin %}
+        <div>
+            <a href="{{ url_for('update_section', sectionId=section.key, currentpage='about') }}">Edit Section</a>
+            <a href="{{ url_for('delete_section', sectionId=section.key, currentpage='about') }}">Delete Section</a>
+        </div>
+    {% endif %}
+	<p>{{ section.text }}</p>
+	<br>
+	{% endfor %}
 {% endblock content %}

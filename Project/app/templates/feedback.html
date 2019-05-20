@@ -3,11 +3,23 @@
 	{% if not current_user.is_anonymous %}
 		<a href="{{ url_for('new_feedback') }}"> Submit Your Feedback </a>
 	{% endif %}
-	{% for feed in feedback %}
-	<h2>{{ feed.uid.username }}</h2>
-	<p>Date submitted: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
-	<h3>{{ feed.title }}</h3>
+	{% for feed in feedback.items %}
+	<h2>{{ feed.title }}</h2>
+	<p>By: {{ feed.user.username }}, Submitted On: {{ feed.timestamp.strftime('%d-%m-%Y') }}</p>
+	{% if current_user.id == feed.uid %}
+        <div>
+            <a href="{{ url_for('update_feedback', feedbackId=feed.id, currentpage='feedback') }}">Edit Feedback</a>
+            <a href="{{ url_for('delete_feedback', feedbackId=feed.id, currentpage='feedback') }}">Delete Feedback</a>
+        </div>
+    {% endif %}
 	<p>{{ feed.text }}</p>
 	<br>
+	{% endfor %}
+	{% for page in feedback.iter_pages(left_edge=1, left_current=3, right_edge=1, right_current=4) %}
+		{% if page %}
+			<a href="{{ url_for('feedback', page=page) }}">{{ page }}</a>
+		{% else %}
+			...
+		{% endif %}
 	{% endfor %}
 {% endblock content %}
