@@ -46,7 +46,7 @@ Unit tests are in the tests folder to run them simply run unittests.py
 
 ## Examples of Team Work
 
-Include commit logs, showing contributions and review from both contributing students
+Reference file log.log.
 
 ## Dependancies
 
