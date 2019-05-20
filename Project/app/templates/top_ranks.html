@@ -1,4 +1,18 @@
 {% extends "layout.html" %}
 {% block content %}
 	<h1>Top Ranks Page</h1>
+	<h2>Top Posts of All Time</h2>
+<ol>
+	{% for i in range(0, post_popular_len)%}
+	<li>Title: {{ post_popular[i]["data"]["title"] }}<br>
+		Posted on: {{ post_popular[i]["data"]["subreddit"] }}<br>
+		Created: {{ post_popular[i]["data"]["created"] }}<br>
+		{{ post_popular[i]["data"]["preview"] }}<br>
+		Up Votes: {{ post_popular[i]["data"]["ups"] }}
+	</li>
+	<br>
+	{% endfor %}
+</ol>
+
+
 {% endblock content %}

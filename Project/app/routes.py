@@ -2,9 +2,10 @@ from flask import render_template, flash, redirect, url_for, request, abort
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from sqlalchemy import desc
+import requests
 
 from app import app, db
-from app.forms import LoginForm, CreateAccountForm, UpdateUsernameForm, FeedbackForm, SectionForm
+from app.forms import LoginForm, CreateAccountForm, UpdateUsernameForm, FeedbackForm, SectionForm, CompareForm
 from app.models import User, Comparison, Feedback, Home, About
 
 
@@ -78,20 +79,48 @@ def delete_section(sectionId, currentpage):
     return redirect(url_for(currentpage))
 
 
-@app.route("/compare")
+@app.route('/compare', methods=['GET', 'POST'])
 def compare():
-    return render_template("compare.html", title='Compare')
+    form = CompareForm()
+    if form.validate_on_submit():
+        response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit1.data,
+                                headers={'User-agent': 'my bot 0.1'}).json()
+        subreddit1_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
+        data1 = requests.get('https://www.reddit.com/'+subreddit1_display_name+'/about.json',
+                             headers={"User-agent": 'my bot 0.1'}).json()
+        data2 = ""
+        flash('Appropriate Subreddit was found, ' + subreddit1_display_name)
+
+        if form.subreddit2.data:
+            response = requests.get("https://www.reddit.com/subreddits/search.json?q=" + form.subreddit2.data,
+                                    headers={'User-agent': 'my bot 0.1'}).json()
+            subreddit2_display_name = response["data"]["children"][0]["data"]["display_name_prefixed"]
+            data2 = requests.get('https://www.reddit.com/'+subreddit2_display_name+'/about.json',
+                                 headers={"User-agent": 'my bot 0.1'}).json()
+            flash('Appropriate Subreddit was found, ' + subreddit2_display_name)
+
+        return render_template("compare_filled.html", title='Compare Filled', form=form,
+                               sub1_data=data1,
+                               sub2_data=data2)
+    return render_template("compare.html", title='Compare', form=form)
 
 
 @app.route("/top_ranks")
 def topRanks():
-    return render_template("top_ranks.html", title='Top Ranks')
+    response = requests.get("https://www.reddit.com/r/all/top.json?t=all", headers={'User-agent':'my bot 0.1'}).json()
+    post_popular = response["data"]["children"]
+    post_popular_len = len(post_popular)
+    return render_template("top_ranks.html", title='Top Ranks',
+                           post_popular=post_popular,
+                           post_popular_len=post_popular_len)
+
 
 @app.route("/feedback")
 def feedback():
     page = request.args.get('page', 1, type=int)
     feedback = Feedback.query.order_by(desc(Feedback.timestamp)).paginate(page=page, per_page=5)
     return render_template("feedback.html", title='Feedback', feedback=feedback)
+
 
 @app.route("/feedback/new", methods=['GET', 'POST'])
 @login_required

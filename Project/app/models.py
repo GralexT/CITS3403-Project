@@ -2,7 +2,7 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask_login import UserMixin, current_user
-from app import db, login, admin, ModelView, expose, Admin, AdminIndexView
+from app import app, db, login, admin, ModelView, expose, Admin, AdminIndexView
 
 
 class User(UserMixin, db.Model):
