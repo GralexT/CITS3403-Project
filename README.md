@@ -46,9 +46,11 @@ Unit tests are in the tests folder to run them simply run unittests.py
 
 ## Examples of Team Work
 
-Reference file log.log.
+Reference file "log.log".
 
 ## Dependancies
+
+Reference "Requirements.txt".
 
 Click	7.0	7.0
 Flask	1.0.3	1.0.3
