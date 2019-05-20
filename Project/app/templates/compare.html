@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <h1>COMPARE SUBREDDITS AND STATISTICS</h1>
-    <form action="" method="post">
+    <form name="CompareForm" method="post", onsubmit="return validateForm()">
         {{ form.hidden_tag() }}
         <p>
             {{ form.subreddit1(size=32) }}
@@ -28,4 +28,14 @@
 	<li>Down-votes</li>
 	<li>Comments</li>
 </ul>
+
+<script>
+    function validateForm() {
+        var x = document.forms["CompareForm"]["subreddit1"].value;
+        if (x == "") {
+            alert("Name must be filled out");
+            return false;
+  }
+}
+</script>
 {% endblock content %}
