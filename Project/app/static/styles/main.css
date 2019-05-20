@@ -62,8 +62,8 @@ aside.template div:hover {
 
 /* BEGIN OF SECTION */
 section.template{
-	margin-left:200px;
-	margin-right: 200px;
+	margin-left: 30%;
+	margin-right: 30%;
 	margin-bottom: 100px
 }
 /** END OF SECTION **/
