@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<script scr="https://d3js.org/d3.v5.js"></script>
 <h1>COMPARE SUBREDDITS AND STATISTICS</h1>
 
 
@@ -22,9 +22,14 @@
     </form>
 
 <h1 id="Title_sub1">{{ sub1_data["data"]["display_name"] }}</h1>
-<p> Subscribers = {{ sub1_data["data"]["subscribers"] }}</p>
-<p> Active Accounts = {{ sub1_data["data"]["accounts_active"] }}</p>
-<p> Subscribers = {{ sub1_data["data"]["subscribers"] }}</p>
+<p id="Sub1"> Subscribers = {{ sub1_data["data"]["subscribers"] }}</p>
+<p id="Active1"> Active Accounts = {{ sub1_data["data"]["accounts_active"] }}</p>
+
+{% if sub2_data %}
+<h1 id="Title_sub2">{{ sub2_data["data"]["display_name"] }}</h1>
+<p id="Subs2"> Subscribers = {{ sub2_data["data"]["subscribers"] }}</p>
+<p id =Active2> Active Accounts = {{ sub2_data["data"]["accounts_active"] }}</p>
+{% endif %}
 
 
 <h2>Compare Subreddits For Statistics</h2>
@@ -34,18 +39,7 @@
 
 <ul>
 	<li>Subscribers</li>
-	<li>Post Frequency</li>
-	<li>Up-votes</li>
-	<li>Down-votes</li>
-	<li>Comments</li>
+	<li>Active Users</li>
 </ul>
-
-
-
-<script>
-    var data = '{{ sub1_data }}';
-    var data2 = JSON.parse(data);
-    document.getElementById("Title_sub1").innerHTML = data;
-</script>
 
 {% endblock content %}
