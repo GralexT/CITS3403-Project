@@ -1,0 +1,979 @@
+commit 721f9612be2976affb0802013ccc97dddfba85e5
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 16:08:57 2019 +0800
+
+    Add files via upload
+
+ Requirements.txt | 27 +++++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
+
+commit c2f0cf8788c80355ef177dddd5910d2e5415acf9
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 16:08:05 2019 +0800
+
+    Update README.md
+
+ README.md | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
+
+commit 79ee2f8c37c45fa0be03eff0a2c385b5d7702fc5
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Mon May 20 15:08:02 2019 +0800
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a10952bccee9d88563e1069592ee62f260949c12
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Mon May 20 15:06:27 2019 +0800
+
+    Update README.md
+
+ README.md | 38 +++++++++++++++++++++++++++++++-------
+ 1 file changed, 31 insertions(+), 7 deletions(-)
+
+commit fe8546e7e75745d7a44aa65df39a9274821d9b56
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 13:09:44 2019 +0800
+
+    Merged Admin with Tests
+
+ Project/__pycache__/config.cpython-36.pyc         | Bin 595 -> 824 bytes
+ Project/app/__pycache__/__init__.cpython-36.pyc   | Bin 699 -> 701 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc      | Bin 3692 -> 4918 bytes
+ Project/app/__pycache__/models.cpython-36.pyc     | Bin 4775 -> 4786 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc     | Bin 7533 -> 8485 bytes
+ Project/app/forms.py                              |  31 +++++++-
+ Project/app/models.py                             |   2 +-
+ Project/app/routes.py                             |  37 ++++++++--
+ Project/app/templates/compare.html                |  31 +++++++-
+ Project/app/templates/top_ranks.html              |  14 ++++
+ Project/config.py                                 |   4 ++
+ Project/tests/__init__.py                         |   2 +
+ Project/tests/__pycache__/unittest.cpython-36.pyc | Bin 0 -> 1755 bytes
+ Project/tests/chromedriver.exe                    | Bin 0 -> 8587264 bytes
+ Project/tests/systemtests.py                      |  83 ++++++++++++++++++++++
+ Project/tests/unittests.py                        |  31 ++++++++
+ 16 files changed, 226 insertions(+), 9 deletions(-)
+
+commit 1e6a08f4b600f112b2d3cbed76fa9e74ac3b2efa
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Mon May 20 12:39:58 2019 +0800
+
+    Add files via upload
+
+ Project/app/__pycache__/forms.cpython-36.pyc  | Bin 3692 -> 3692 bytes
+ Project/app/__pycache__/models.cpython-36.pyc | Bin 4781 -> 4775 bytes
+ Project/app/models.py                         |   9 +++++----
+ Project/app/templates/feedback.html           |   2 ++
+ 4 files changed, 7 insertions(+), 4 deletions(-)
+
+commit e9590bbd5de69adb8368479b745debea4360ab33
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 12:28:09 2019 +0800
+
+    Update README.md
+
+ README.md | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+commit e7ea23edee032224fe0dd40db7ee86c8302812f4
+Merge: ad241a0 75e5d7f
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Mon May 20 11:49:23 2019 +0800
+
+    Merge pull request #5 from GralexT/admin-users
+    
+    Added admin users + functionality for Home/About
+
+commit ad241a07fa392dc79b955651d7d1f5793ad55eed
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 11:05:59 2019 +0800
+
+    Update README.md
+
+ README.md | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+commit 693426fc00d57ba537da27e7db48810529aee46d
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 20 10:52:58 2019 +0800
+
+    Update README.md
+
+ README.md | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 75e5d7f9f4bbbc257f23b8b4db7b92f76a161c34
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Mon May 20 05:17:53 2019 +0800
+
+    Added admin users + functionality for Home/About
+
+ Project/__pycache__/config.cpython-36.pyc       | Bin 597 -> 595 bytes
+ Project/app.db                                  | Bin 32768 -> 40960 bytes
+ Project/app/__init__.py                         |   7 +
+ Project/app/__pycache__/__init__.cpython-36.pyc | Bin 543 -> 699 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc    | Bin 3004 -> 3692 bytes
+ Project/app/__pycache__/models.cpython-36.pyc   | Bin 1895 -> 4781 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc   | Bin 3971 -> 7533 bytes
+ Project/app/forms.py                            |  45 +++---
+ Project/app/models.py                           |  65 ++++++++-
+ Project/app/routes.py                           | 176 +++++++++++++++++-------
+ Project/app/templates/about.html                |  17 ++-
+ Project/app/templates/account.html              |  18 ++-
+ Project/app/templates/compare.html              |  29 +---
+ Project/app/templates/feedback.html             |  20 ++-
+ Project/app/templates/home.html                 |  26 ++--
+ Project/app/templates/layout.html               |   3 +
+ Project/app/templates/login.html                |   2 +-
+ Project/app/templates/new_feedback.html         |   2 +-
+ Project/app/templates/section_form.html         |  28 ++++
+ Project/app/templates/top_ranks.html            |  14 --
+ 20 files changed, 312 insertions(+), 140 deletions(-)
+
+commit b945c95d6073533df84ec43ee654190b9b738cef
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Sun May 19 18:54:15 2019 +0800
+
+    Delete layout(old).html
+
+ Project/app/templates/layout(old).html | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit cd213828c1fcdc6d869914ffdb9145473384e164
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Sun May 19 18:54:06 2019 +0800
+
+    Delete home(old).html
+
+ Project/app/templates/home(old).html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit b5cd314505eef00856df138eae616a08c819102a
+Merge: 9b8b098 41c00b6
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Sun May 19 18:50:10 2019 +0800
+
+    Merge pull request #4 from GralexT/Pre-Merge-v0.2
+    
+    Combined Compare-Top-Ranks and Pre-Merge
+
+commit 41c00b68a9f689a58d6596749bafbcd17cbbb531
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Sun May 19 18:46:24 2019 +0800
+
+    Combined Compare-Top-Ranks and Pre-Merge
+    
+    Manual Merge
+
+ Project/app.db                      | Bin 40960 -> 32768 bytes
+ Project/app/forms.py                |  18 +++++++++++++++++-
+ Project/app/models.py               |  17 +++++++++++++++--
+ Project/app/routes.py               |  36 ++++++++++++++++++++++++++++++------
+ Project/app/templates/account.html  |  29 +++++++++++++++++++++++++++--
+ Project/app/templates/feedback.html |  11 ++++++++++-
+ 6 files changed, 99 insertions(+), 12 deletions(-)
+
+commit 9b8b0983b005f70414b21fa5065ff28379ed719d
+Merge: 0167d6a daf9902
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Sun May 19 17:32:53 2019 +0800
+
+    Merge pull request #3 from GralexT/Compare-and-Top-Ranks
+    
+    Add files via upload
+
+commit 0167d6a10102190790b689088d244b0fbae6adc0
+Merge: 7ddc0ce 9d35bdb
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Sun May 19 17:31:06 2019 +0800
+
+    Merge pull request #2 from GralexT/Pre-Merge
+    
+    User Account, Feedback and Submit_Feedback
+
+commit daf990281bce11abe874783b8258b13a7fe8538a
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Sun May 19 13:13:52 2019 +0800
+
+    Add files via upload
+    
+    Added requests to the Reddit API to populate
+        -Top Ranks
+        -Compare
+    
+    Added a form to query Reddit API
+        CompareForm(Flask)
+    
+    Added a new Compare_filled.html
+
+ Project/__pycache__/config.cpython-36.pyc       | Bin 595 -> 597 bytes
+ Project/app.db                                  | Bin 32768 -> 40960 bytes
+ Project/app/__pycache__/__init__.cpython-36.pyc | Bin 541 -> 543 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc    | Bin 2624 -> 3004 bytes
+ Project/app/__pycache__/models.cpython-36.pyc   | Bin 2508 -> 1895 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc   | Bin 3969 -> 3971 bytes
+ Project/app/forms.py                            |  38 +++++++-----
+ Project/app/models.py                           |  18 +-----
+ Project/app/routes.py                           |  73 +++++++++++++-----------
+ Project/app/templates/account.html              |  29 +---------
+ Project/app/templates/compare.html              |  29 +++++++++-
+ Project/app/templates/compare_filled.html       |  51 +++++++++++++++++
+ Project/app/templates/feedback.html             |  11 +---
+ Project/app/templates/top_ranks.html            |  14 +++++
+ 14 files changed, 162 insertions(+), 101 deletions(-)
+
+commit 9d35bdbee5503abe7359a4f3390ea04512f284a0
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Fri May 17 19:11:09 2019 +0800
+
+    User Account, Feedback and Submit_Feedback
+    
+    added more information to User __repr__ in models.py.
+    
+    added new feedback submission option for users.
+    added Feedback model in models.py.
+    added to feedback page:
+            connected database.
+            Shows the last 25 feedback submissions in descending order.
+    
+    added to account page:
+            login_required decorator.
+            user-specific accounts.
+            ability for accounts to change their username.
+    
+    additional minor changes, inc. additional content to html pages.
+
+ Project/app.db                                  | Bin 40960 -> 32768 bytes
+ Project/app/__pycache__/__init__.cpython-36.pyc | Bin 541 -> 541 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc    | Bin 1780 -> 2624 bytes
+ Project/app/__pycache__/models.cpython-36.pyc   | Bin 1877 -> 2508 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc   | Bin 3021 -> 3969 bytes
+ Project/app/forms.py                            |  17 +++++++++++-
+ Project/app/models.py                           |  16 +++++++++--
+ Project/app/routes.py                           |  34 +++++++++++++++++++-----
+ Project/app/templates/account.html              |  29 ++++++++++++++++++--
+ Project/app/templates/feedback.html             |  11 +++++++-
+ Project/app/templates/new_feedback.html         |  22 +++++++++++++++
+ 11 files changed, 117 insertions(+), 12 deletions(-)
+
+commit 7ddc0ce13ea3e626719d8e7e1b2618aefcc3ab92
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Thu May 16 16:59:07 2019 +0800
+
+    Minor changes before breaking
+    
+    Added additional links to login and registration:
+            'already have an account' link added to registration.
+            'reset password' link added to login. (functionality to follow in next upload)
+    Redirects to Account page after login.
+    Logs user in after registration and redirects to their account page. (authentication later on)
+    Change of font style.
+    Added feedback template. (functionality to follow in next upload)
+
+ Project/__pycache__/config.cpython-36.pyc     | Bin 595 -> 595 bytes
+ Project/app.db                                | Bin 40960 -> 40960 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc  | Bin 1780 -> 1780 bytes
+ Project/app/__pycache__/models.cpython-36.pyc | Bin 1877 -> 1877 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc | Bin 2668 -> 3021 bytes
+ Project/app/models.py                         |   2 +-
+ Project/app/routes.py                         |  16 +++++++++++++---
+ Project/app/static/styles/main.css            |   5 +++++
+ Project/app/templates/feedback.html           |   4 ++++
+ Project/app/templates/home.html               |   2 --
+ Project/app/templates/layout.html             |  19 +++++++------------
+ Project/app/templates/login.html              |   3 ++-
+ Project/app/templates/password_recovery.html  |   5 +++++
+ 13 files changed, 37 insertions(+), 19 deletions(-)
+
+commit 765cd75c474918e233d49aab07f0b8ca21053b09
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Thu May 16 11:09:30 2019 +0800
+
+    Minor additions to forms.py
+
+ Project/__pycache__/config.cpython-36.pyc       | Bin 0 -> 595 bytes
+ Project/app/__pycache__/__init__.cpython-36.pyc | Bin 0 -> 541 bytes
+ Project/app/__pycache__/forms.cpython-36.pyc    | Bin 0 -> 1780 bytes
+ Project/app/__pycache__/models.cpython-36.pyc   | Bin 0 -> 1877 bytes
+ Project/app/__pycache__/routes.cpython-36.pyc   | Bin 0 -> 2668 bytes
+ Project/app/forms.py                            |   8 ++++----
+ Project/app/routes.py                           |  10 +++++-----
+ Project/app/templates/create_account.html       |   3 ++-
+ Project/app/templates/layout.html               |   8 ++++----
+ 9 files changed, 15 insertions(+), 14 deletions(-)
+
+commit 22428659bb604afd7963a6db48264b39a8ab6408
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 20:26:11 2019 +0800
+
+    Add files via upload
+
+ Project/app.db                                  | Bin 40960 -> 40960 bytes
+ Project/app/__init__.py                         |   3 ++
+ Project/app/__pycache__/__init__.cpython-37.pyc | Bin 467 -> 557 bytes
+ Project/app/__pycache__/forms.cpython-37.pyc    | Bin 760 -> 1723 bytes
+ Project/app/__pycache__/models.cpython-37.pyc   | Bin 1291 -> 1893 bytes
+ Project/app/__pycache__/routes.cpython-37.pyc   | Bin 1427 -> 2583 bytes
+ Project/app/forms.py                            |  22 ++++++++++++-
+ Project/app/models.py                           |  19 +++++++++--
+ Project/app/routes.py                           |  42 +++++++++++++++++++++---
+ Project/app/templates/create_account.html       |  37 +++++++++++++++++++++
+ Project/app/templates/layout.html               |   7 +++-
+ Project/app/templates/login.html                |   1 +
+ 12 files changed, 121 insertions(+), 10 deletions(-)
+
+commit 477b5871270754c18dc5ea4fd9ae751fd130257b
+Merge: ba58f5c 7a6c86e
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Wed May 15 15:14:53 2019 +0800
+
+    Merge pull request #1 from GralexT/dbBranch
+    
+    Db branch merge
+
+commit 7a6c86e6a821d9761b955fabb0b20d41248e9f5a
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:59:06 2019 +0800
+
+    Add files via upload
+
+ Project/Known Issues.txt                        |   4 ++
+ Project/README.txt                              |   3 +
+ Project/Tasks.txt                               |   4 ++
+ Project/__pycache__/config.cpython-37.pyc       | Bin 0 -> 611 bytes
+ Project/app.db                                  | Bin 0 -> 40960 bytes
+ Project/app.py                                  |  11 +++
+ Project/app/__init__.py                         |  11 +++
+ Project/app/__pycache__/__init__.cpython-37.pyc | Bin 0 -> 467 bytes
+ Project/app/__pycache__/forms.cpython-37.pyc    | Bin 0 -> 760 bytes
+ Project/app/__pycache__/models.cpython-37.pyc   | Bin 0 -> 1291 bytes
+ Project/app/__pycache__/routes.cpython-37.pyc   | Bin 0 -> 1427 bytes
+ Project/app/forms.py                            |  10 +++
+ Project/app/models.py                           |  26 +++++++
+ Project/app/routes.py                           |  40 +++++++++++
+ Project/app/static/img/gradient.jpg             | Bin 0 -> 993314 bytes
+ Project/app/static/styles/main.css              |  75 ++++++++++++++++++++
+ Project/app/templates/about.html                |   4 ++
+ Project/app/templates/account.html              |   5 ++
+ Project/app/templates/compare.html              |   4 ++
+ Project/app/templates/home(old).html            |   4 ++
+ Project/app/templates/home.html                 |  15 ++++
+ Project/app/templates/layout(old).html          |   9 +++
+ Project/app/templates/layout.html               |  87 ++++++++++++++++++++++++
+ Project/app/templates/login.html                |  23 +++++++
+ Project/app/templates/top_ranks.html            |   4 ++
+ Project/config.py                               |   9 +++
+ 26 files changed, 348 insertions(+)
+
+commit 1cf5eabffad289f38d4a611cc0a9bc284440092b
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:56:01 2019 +0800
+
+    Delete config.cpython-37.pyc
+
+ Project/Project/__pycache__/config.cpython-37.pyc | Bin 611 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4bf1fce1464ec3afdbbe54b2d324949c07ab3a89
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:55:50 2019 +0800
+
+    Delete routes.cpython-37.pyc
+
+ Project/Project/app/__pycache__/routes.cpython-37.pyc | Bin 1427 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit fd28c0e17a0a3c2243babe28dcb577d7bd433f07
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:55:43 2019 +0800
+
+    Delete models.cpython-37.pyc
+
+ Project/Project/app/__pycache__/models.cpython-37.pyc | Bin 1285 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f88b576048cbd496605bc3f8b0742c5c2f1e72b8
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:55:35 2019 +0800
+
+    Delete forms.cpython-37.pyc
+
+ Project/Project/app/__pycache__/forms.cpython-37.pyc | Bin 760 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit aa3cf34d0e30be4d6d406d321f51d3992ebdced3
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:55:25 2019 +0800
+
+    Delete __init__.cpython-37.pyc
+
+ Project/Project/app/__pycache__/__init__.cpython-37.pyc | Bin 467 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d7225687b39afba8824b0d0d302edcc2432928a9
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:55:14 2019 +0800
+
+    Delete gradient.jpg
+
+ Project/Project/app/static/img/gradient.jpg | Bin 993314 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 409bc5e62e27640968da73875b2baee54d17561d
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:54:54 2019 +0800
+
+    Delete main.css
+
+ Project/Project/app/static/styles/main.css | 75 ------------------------------
+ 1 file changed, 75 deletions(-)
+
+commit 9faed04efcb4f010f4cc94cb4776c102b0f93d62
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:54:37 2019 +0800
+
+    Delete top_ranks.html
+
+ Project/Project/app/templates/top_ranks.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 2ce36f4381f58b1bd73c490874ac1dcb218e3fb3
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:54:29 2019 +0800
+
+    Delete login.html
+
+ Project/Project/app/templates/login.html | 23 -----------------------
+ 1 file changed, 23 deletions(-)
+
+commit 0bfc22979f10ae19a36597a3b1a77e58f73d4eb7
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:54:21 2019 +0800
+
+    Delete layout.html
+
+ Project/Project/app/templates/layout.html | 87 -------------------------------
+ 1 file changed, 87 deletions(-)
+
+commit 7799e12568bf6c3686b03c9eddd4c8d138afcf6e
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:54:11 2019 +0800
+
+    Delete layout(old).html
+
+ Project/Project/app/templates/layout(old).html | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit e65ed44077b316c21e864f7c8a01f7a2dd65f2db
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:58 2019 +0800
+
+    Delete home.html
+
+ Project/Project/app/templates/home.html | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+commit 35afd0beb5a4f974b91d361c85240b26682d770e
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:49 2019 +0800
+
+    Delete home(old).html
+
+ Project/Project/app/templates/home(old).html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 05fd72e8be30ff46425ba4dcbe96be6e1dafa7ae
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:40 2019 +0800
+
+    Delete compare.html
+
+ Project/Project/app/templates/compare.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 6a4681d81953136d21e7f1c18d49d04e6a029c1c
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:30 2019 +0800
+
+    Delete account.html
+
+ Project/Project/app/templates/account.html | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit 85e497f71805348f60e3b7a772bbdd09982621fc
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:20 2019 +0800
+
+    Delete about.html
+
+ Project/Project/app/templates/about.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit e334258b12495fb65ed9120ea984b862e1548d7a
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:53:04 2019 +0800
+
+    Delete routes.py
+
+ Project/Project/app/routes.py | 40 ----------------------------------------
+ 1 file changed, 40 deletions(-)
+
+commit 755f1cadeea079804c969e0de0db0159341503cc
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:52:45 2019 +0800
+
+    Delete models.py
+
+ Project/Project/app/models.py | 26 --------------------------
+ 1 file changed, 26 deletions(-)
+
+commit 58a5cd10f79feb6a783a7eb53909f90751b3fa57
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:52:34 2019 +0800
+
+    Delete forms.py
+
+ Project/Project/app/forms.py | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+commit 4a0bc88010f07265bbca3068b219bc43990b7f92
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:52:22 2019 +0800
+
+    Delete __init__.py
+
+ Project/Project/app/__init__.py | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+commit 77502f55aebebde8fafe15973480801f29bd267a
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:52:11 2019 +0800
+
+    Delete config.py
+
+ Project/Project/config.py | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit b70d88ff1189e5a7f483caa130ccf53cc56bc07b
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:52:02 2019 +0800
+
+    Delete app.py
+
+ Project/Project/app.py | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+commit 1647ae6ac94ea9bf0427a45a872a94c464012c3f
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:51:53 2019 +0800
+
+    Delete app.db
+
+ Project/Project/app.db | Bin 40960 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 9b93212b91204a11dd850a75e1e0970d454db987
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:51:42 2019 +0800
+
+    Delete Tasks.txt
+
+ Project/Project/Tasks.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 4d9569015fe78b29150c9d6cb2164e40c508de92
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:51:33 2019 +0800
+
+    Delete README.txt
+
+ Project/Project/README.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 6920f88d11ae0d7f9923d5d45cd08c2a97580071
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:51:24 2019 +0800
+
+    Delete Known Issues.txt
+
+ Project/Project/Known Issues.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 44cbd69a421ab8b53893af7a00680aa057fd779e
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:50:04 2019 +0800
+
+    Delete config.cpython-37.pyc
+
+ Project/__pycache__/config.cpython-37.pyc | Bin 563 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2b24a597e967267ba6111f923b37d78a7ac746eb
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:49:49 2019 +0800
+
+    Delete routes.cpython-37.pyc
+
+ Project/app/__pycache__/routes.cpython-37.pyc | Bin 1003 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 68c83bdece4c7e9d29969c8fa5084b3faf798d26
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:49:40 2019 +0800
+
+    Delete models.cpython-37.pyc
+
+ Project/app/__pycache__/models.cpython-37.pyc | Bin 163 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 51dffbf02620a35461f21907caa0c88e7d5f9539
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:49:30 2019 +0800
+
+    Delete __init__.cpython-37.pyc
+
+ Project/app/__pycache__/__init__.cpython-37.pyc | Bin 506 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c4e64835b87f74f2b038ac9aab69f2d61c2a46bc
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:49:12 2019 +0800
+
+    Delete main.css
+
+ Project/app/static/styles/main.css | 75 --------------------------------------
+ 1 file changed, 75 deletions(-)
+
+commit 9f9b0ebe7318a7d5238c9707742ef32d3d78a274
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:49:01 2019 +0800
+
+    Delete gradient.jpg
+
+ Project/app/static/img/gradient.jpg | Bin 993314 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4fac85839d8b2426abcd609ab8341c64b7d424d0
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:48:45 2019 +0800
+
+    Delete top_ranks.html
+
+ Project/app/templates/top_ranks.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit ce456cf8ddbc1d9ad729c279bd5f9cae6a3adc20
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:48:37 2019 +0800
+
+    Delete layout.html
+
+ Project/app/templates/layout.html | 75 ---------------------------------------
+ 1 file changed, 75 deletions(-)
+
+commit 4dd9c85b9bc55f4970140b5681393d4d59ff4ec4
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:48:26 2019 +0800
+
+    Delete layout(old).html
+
+ Project/app/templates/layout(old).html | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit 560748b814a67ab5aca7168057897212aabff279
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:48:17 2019 +0800
+
+    Delete home.html
+
+ Project/app/templates/home.html | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+commit af96954c2c434b423e7009c5a465af6bce8c1754
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:48:06 2019 +0800
+
+    Delete home(old).html
+
+ Project/app/templates/home(old).html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit f73689fb8f064a28e9cee3f87ab435dcdf02d9ef
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:58 2019 +0800
+
+    Delete compare.html
+
+ Project/app/templates/compare.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit fc7c64ba75f82fbd58653e0f54fed7380483428e
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:47 2019 +0800
+
+    Delete account.html
+
+ Project/app/templates/account.html | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit ab72cc632324c3f2029abf2f73f805c04ed888db
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:40 2019 +0800
+
+    Delete about.html
+
+ Project/app/templates/about.html | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit ff9032aaf6f3fa9c65fffeed3c335371356aa85d
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:29 2019 +0800
+
+    Delete routes.py
+
+ Project/app/routes.py | 24 ------------------------
+ 1 file changed, 24 deletions(-)
+
+commit 9293f30f910c673fb671b194ded6b6613df817fd
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:18 2019 +0800
+
+    Delete __init__.py
+
+ Project/app/__init__.py | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+commit 918de10ecb5b1806e51d023ecc6d5973bfbb4186
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:47:05 2019 +0800
+
+    Delete config.py
+
+ Project/config.py | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit 2eb243243a71a101e27dd4debc7f952eb7b84f65
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:46:53 2019 +0800
+
+    Delete app.py
+
+ Project/app.py | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+commit 6943302163e81957980fbebbdd8fea1ec7ea3eb2
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:46:44 2019 +0800
+
+    Delete app.db
+
+ Project/app.db | Bin 24576 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c4e1823192c41bbfec94f39614d036b067bbd50a
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:46:34 2019 +0800
+
+    Delete Tasks.txt
+
+ Project/Tasks.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 6f4b122d07def8efb14f3a3b1c7e909eef881638
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:46:21 2019 +0800
+
+    Delete README.txt
+
+ Project/README.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+commit 465acb6f8e0a5868d6aaf57ad50b36c932cacf7b
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 15 12:45:16 2019 +0800
+
+    Delete Known Issues.txt
+
+ Project/Known Issues.txt | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 4fc66937c1457c486e6a3d92c29fcf85a6a598c7
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Tue May 14 14:25:21 2019 +0800
+
+    Add files via upload
+    
+    added models.py and forms.py and a login.html
+
+ Project/Project/Known Issues.txt                   |   4 +
+ Project/Project/README.txt                         |   3 +
+ Project/Project/Tasks.txt                          |   4 +
+ Project/Project/__pycache__/config.cpython-37.pyc  | Bin 0 -> 611 bytes
+ Project/Project/app.db                             | Bin 0 -> 40960 bytes
+ Project/Project/app.py                             |  11 +++
+ Project/Project/app/__init__.py                    |  11 +++
+ .../app/__pycache__/__init__.cpython-37.pyc        | Bin 0 -> 467 bytes
+ .../Project/app/__pycache__/forms.cpython-37.pyc   | Bin 0 -> 760 bytes
+ .../Project/app/__pycache__/models.cpython-37.pyc  | Bin 0 -> 1285 bytes
+ .../Project/app/__pycache__/routes.cpython-37.pyc  | Bin 0 -> 1427 bytes
+ Project/Project/app/forms.py                       |  10 +++
+ Project/Project/app/models.py                      |  26 ++++++
+ Project/Project/app/routes.py                      |  40 ++++++++++
+ Project/Project/app/static/img/gradient.jpg        | Bin 0 -> 993314 bytes
+ Project/Project/app/static/styles/main.css         |  75 ++++++++++++++++++
+ Project/Project/app/templates/about.html           |   4 +
+ Project/Project/app/templates/account.html         |   5 ++
+ Project/Project/app/templates/compare.html         |   4 +
+ Project/Project/app/templates/home(old).html       |   4 +
+ Project/Project/app/templates/home.html            |  15 ++++
+ Project/Project/app/templates/layout(old).html     |   9 +++
+ Project/Project/app/templates/layout.html          |  87 +++++++++++++++++++++
+ Project/Project/app/templates/login.html           |  23 ++++++
+ Project/Project/app/templates/top_ranks.html       |   4 +
+ Project/Project/config.py                          |   9 +++
+ 26 files changed, 348 insertions(+)
+
+commit 9249454390dbd83564c9d94bfd0469736f8eb33f
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 13 22:57:29 2019 +0800
+
+    Delete blue_to_white.jpg
+    
+    moved to styles
+
+ Project/Images/blue_to_white.jpg | Bin 993314 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 77180dd46220b889232f05f40ae41dc8bc702705
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 13 22:56:54 2019 +0800
+
+    Delete Databases.db
+    
+    changed name to app.db
+
+ Project/Databases.db | Bin 24576 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d485c95f5ccf4cb63a98a91f447386dafd3814be
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 13 22:56:34 2019 +0800
+
+    Delete template.html
+    
+    moved contents to templates
+
+ Project/html/template.html | 274 ---------------------------------------------
+ 1 file changed, 274 deletions(-)
+
+commit 402df9d96505e295231ec606f9fb27fe0831499c
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 13 22:56:01 2019 +0800
+
+    Delete template.css
+    
+    moved contents to templates
+
+ Project/css/template.css | 74 ------------------------------------------------
+ 1 file changed, 74 deletions(-)
+
+commit 54a187def1eecb12b66eeb2139f93f134ef5e2a5
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Mon May 13 22:50:28 2019 +0800
+
+    Add files via upload
+    
+    Re-Structure
+
+ Project/__pycache__/config.cpython-37.pyc       | Bin 0 -> 563 bytes
+ Project/app.db                                  | Bin 0 -> 24576 bytes
+ Project/app.py                                  |   9 +++
+ Project/app/__init__.py                         |  12 ++++
+ Project/app/__pycache__/__init__.cpython-37.pyc | Bin 0 -> 506 bytes
+ Project/app/__pycache__/models.cpython-37.pyc   | Bin 0 -> 163 bytes
+ Project/app/__pycache__/routes.cpython-37.pyc   | Bin 0 -> 1003 bytes
+ Project/app/routes.py                           |  24 ++++++++
+ Project/app/static/img/gradient.jpg             | Bin 0 -> 993314 bytes
+ Project/app/static/styles/main.css              |  75 ++++++++++++++++++++++++
+ Project/app/templates/about.html                |   4 ++
+ Project/app/templates/account.html              |   5 ++
+ Project/app/templates/compare.html              |   4 ++
+ Project/app/templates/home(old).html            |   4 ++
+ Project/app/templates/home.html                 |  15 +++++
+ Project/app/templates/layout(old).html          |   9 +++
+ Project/app/templates/layout.html               |  75 ++++++++++++++++++++++++
+ Project/app/templates/top_ranks.html            |   4 ++
+ Project/config.py                               |   9 +++
+ 19 files changed, 249 insertions(+)
+
+commit 085081d21c23eb4291f8999255245cf863be760b
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Thu May 9 11:26:48 2019 +0800
+
+    Add files via upload
+
+ Project/Databases.db | Bin 0 -> 24576 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 33092a637c2d886c79148ceb653302988b9e8f61
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Thu May 9 11:26:26 2019 +0800
+
+    Delete Databases
+
+ Project/Databases | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit d504cc9cb38893fa2214ab5348fb680b7eca8ba6
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Thu May 9 11:26:11 2019 +0800
+
+    Delete Databases.db
+
+ Databases.db | Bin 24576 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ef07409759ba6530137a3365ef8fa70d7642ba1c
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Thu May 9 11:25:20 2019 +0800
+
+    Add files via upload
+
+ Databases.db | Bin 0 -> 24576 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 12360f8b2a6770ebe1eddc3868ec2e14ff5410c1
+Author: HenrySmith22227188 <49471409+HenrySmith22227188@users.noreply.github.com>
+Date:   Wed May 1 12:43:45 2019 +0800
+
+    Create Databases
+
+ Project/Databases | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ba58f5c5040e18ab754d3b7ccb005e41ebf4b6bd
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Thu Apr 18 10:35:14 2019 +0800
+
+    Add files via upload
+
+ Project/Images/blue_to_white.jpg | Bin 0 -> 993314 bytes
+ Project/Known Issues.txt         |   4 +
+ Project/README.txt               |   3 +
+ Project/Tasks.txt                |   4 +
+ Project/css/template.css         |  74 +++++++++++
+ Project/html/template.html       | 274 +++++++++++++++++++++++++++++++++++++++
+ 6 files changed, 359 insertions(+)
+
+commit 72eaa44b3b72c2aa600c959cdc024737aa5ec598
+Author: GralexT <43897283+GralexT@users.noreply.github.com>
+Date:   Wed Apr 17 10:57:45 2019 +0800
+
+    Initial commit
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
